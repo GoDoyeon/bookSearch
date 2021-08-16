@@ -8,17 +8,16 @@ const Order = () => {
   const orders = useOrders();
   const { books } = useBooks();
   const { remove, removeAll } = useActions();
-  console.log('장바구니 책 개수:' + orders.length);
-  // const totalPrice = useMemo(() => {
-  //   return orders
-  //     .map((order) => {
-  //       const { id, quantity } = order;
-  //       const book = books.find((b) => b.id === id);
-  //       return book.sale_price * quantity;
-  //     })
-  //     .reduce((l, r) => l + r, 0);
-  // }, [orders, books]);
-  // console.log(orders);
+  const totalPrice = useMemo(() => {
+    return orders
+      .map((order) => {
+        const { isbn, quantity } = order;
+        const book = books.find((b) => b.isbn === isbn);
+        return book.sale_price * quantity;
+      })
+      .reduce((l, r) => l + r, 0);
+  }, [orders, books]);
+  console.log(orders);
   if (orders.length === 0) {
     return (
       <OrderWrapper>
@@ -33,17 +32,16 @@ const Order = () => {
       <OrderWrapper>
         <h1>장바구니</h1>
         {orders.map((order) => {
-          const { id } = order;
-          const book = books.find((b) => b.id === id);
-          console.log('휴:' + book);
-          // const click = () => {
-          //   remove(id);
-          // };
+          const { isbn } = order;
+          const book = books.find((b) => b.isbn === isbn);
+          const click = () => {
+            remove(isbn);
+          };
           return (
             <>
-              <div className='item' key={id}>
+              <div className='item' key={isbn}>
                 <p>{book.title}</p>
-                {/* <div className='img'>
+                <div className='img'>
                   <img src={book.thumbnail} />
                 </div>
                 <div className='content'>
@@ -56,7 +54,7 @@ const Order = () => {
                     $ {book.sale_price * order.quantity}
                   </p>
                   <CrossBtn onClick={click}>X</CrossBtn>
-                </div> */}
+                </div>
               </div>
             </>
           );
@@ -66,7 +64,7 @@ const Order = () => {
         <hr />
         <div className='item'>
           <div className='total'>Total</div>
-          {/* <div className='sale_price'>${totalPrice}</div> */}
+          <div className='sale_price'>${totalPrice}</div>
         </div>
         <button classname='btn' onClick={removeAll}>
           X

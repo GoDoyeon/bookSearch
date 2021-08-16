@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { bookSearch } from '../api';
 import useBooks from '../hooks/useBooks';
 import BookList from './BookList';
-import Item from './Item';
 
 const LiBrary = () => {
   const { searchBook } = useBooks();

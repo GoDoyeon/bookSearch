@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API_KEY from './API_KEY';
+//import API_KEY from './API_KEY';
 
 export const Kakao = axios.create({
   baseURL: 'https://dapi.kakao.com', // 공통 요청 경로를 지정해준다.

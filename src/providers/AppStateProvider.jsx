@@ -24,6 +24,7 @@ const AppStateProvider = ({ children }) => {
     };
 
     const { data } = await bookSearch(params); // api 호출
+    console.log(data);
     if (reset) {
       setBooks(data.documents);
     } else {
@@ -37,30 +38,28 @@ const AppStateProvider = ({ children }) => {
   const [orders, setOrders] = useState([]);
 
   // 장바구니 추가
-  // [{id, quantity : 1}]
-  const addToOrder = useCallback((id) => {
+  // [{isbn, quantity : 1}]
+  const addToOrder = useCallback((isbn) => {
     setOrders((orders) => {
-      // 동일한 책을 추가할 땐 2권, 3권 으로 변경해주기 위해 동일한 id가 있는지 검사
-      // const finded = orders.find((order) => order.id === id);
-      const finded = undefined;
-      console.log(`finded: ${finded}`);
+      // 동일한 책을 추가할 땐 2권, 3권 으로 변경해주기 위해 동일한 isbn가 있는지 검사
+      const finded = orders.find((order) => order.isbn === isbn);
       // 장바구니에 동일한 책이 없으면 quantity에 1을 넣어줌
       if (finded === undefined) {
         console.log('동일한책 없음');
-        console.log(`id: ${id}`);
-        return [...orders, { id, quantity: 1 }];
+        console.log(`isbn: ${isbn}`);
+        return [...orders, { isbn, quantity: 1 }];
       } // 동일한 책이 있으면
       else {
         return orders.map((order) => {
           console.log('dd');
-          if (order.id === id) {
-            console.log(`order1: ${order.id}`);
+          if (order.isbn === isbn) {
+            console.log(`order1: ${order.isbn}`);
             return {
-              id,
+              isbn,
               quantity: order.quantity + 1,
             };
           } else {
-            console.log(`order2: ${order.id}`);
+            console.log(`order2: ${order.isbn}`);
             return order;
           }
         });
@@ -69,9 +68,9 @@ const AppStateProvider = ({ children }) => {
   }, []);
 
   // 장바구니에서 책 삭제하기
-  const remove = useCallback((id) => {
+  const remove = useCallback((isbn) => {
     setOrders((orders) => {
-      return orders.filter((order) => order.id !== id);
+      return orders.filter((order) => order.isbn !== isbn);
     });
   }, []);
 

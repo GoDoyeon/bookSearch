@@ -7,15 +7,23 @@ const BookList = () => {
   const { addToOrder } = useActions();
   return (
     <BookListWrapper>
-      {books.map((item, id) => {
-        const { thumbnail, title, authors, price, sale_price, publisher, url } =
-          item;
+      {books.map((book) => {
+        const {
+          isbn,
+          thumbnail,
+          title,
+          authors,
+          price,
+          sale_price,
+          publisher,
+          url,
+        } = book;
         const click = () => {
-          addToOrder(id);
-          console.log('id: ' + id);
+          addToOrder(isbn);
+          console.log('[bookList]]isbn: ' + isbn);
         };
         return (
-          <BookItem key={id}>
+          <BookItem key={isbn}>
             <BookImage>
               <a href={url} target='_blank' rel='noreferrer'>
                 <img src={thumbnail} alt={thumbnail} />
@@ -27,7 +35,7 @@ const BookList = () => {
                 <b>작가</b> {authors}
               </dt>
               <dt>
-                <b>id</b> {id}
+                <b>isbn</b> {isbn}
               </dt>
               <dt>
                 <b>정가</b> {price}
