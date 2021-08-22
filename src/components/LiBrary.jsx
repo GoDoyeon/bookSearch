@@ -57,6 +57,17 @@ const LiBraryWrapper = styled.div`
   .books {
     display: flex;
   }
+
+  .searchBox {
+    position: relative;
+    width: 70%;
+    height: 60px;
+    padding: 0 155px 0 132px;
+    margin: 40px auto 90px;
+    background: #fff;
+    text-align: left;
+    box-sizing: border-box;
+  }
 `;
 
 export default LiBrary;

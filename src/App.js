@@ -1,21 +1,23 @@
 import React from 'react';
 import './App.css';
-import BookList from './components/BookList';
-import LiBrary from './components/LiBrary';
-import Order from './components/Order';
+import MainPage from './page/MainPage';
+import LibraryPage from './page/LibraryPage';
 import AppStateProvider from './providers/AppStateProvider';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-const App = () => {
+function App() {
   return (
     <>
       <AppStateProvider>
-        <LiBrary>
-          <BookList />
-        </LiBrary>
-        <Order />
+        <BrowserRouter>
+          <Switch>
+            <Route component={MainPage} exact path='/' />
+            <Route compoennt={LibraryPage} path='/library' />
+          </Switch>
+        </BrowserRouter>
       </AppStateProvider>
     </>
   );
-};
+}
 
 export default App;
