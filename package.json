@@ -1,5 +1,5 @@
 {
-  "name": "bookSearchApp",
+  "name": "bookSearch",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -39,5 +39,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://godoyeon.github.io/library/"
+  "homepage": "http://godoyeon.github.io/bookSearch/"
 }
