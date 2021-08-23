@@ -48,7 +48,7 @@ const LiBraryWrapper = styled.div`
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   .title {
     font-family: 'Poppins', sans-serif;
-    color: var(--blue-color);
+    color: var(--navy-color);
     display: flex;
     align-items: center;
     justify-content: center;

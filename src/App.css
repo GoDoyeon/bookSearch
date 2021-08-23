@@ -3,6 +3,7 @@
 :root {
   --mint-color: #cdf0ea;
   --grey-color: #f9f9f9;
+  --darkgrey-color: #a7a9b5;
   --pink-color: #f7dbf0;
   --violet-color: #beaee2;
   --black-color: #8d8f92;
@@ -10,6 +11,7 @@
   --blue-color: #a2dbfa;
   --yellow-color: #ffd369;
   --red-color: #f16262;
+  --navy-color: rgba(36, 76, 112);
 }
 
 /* font-family: 'Nanum Gothic', sans-serif;
