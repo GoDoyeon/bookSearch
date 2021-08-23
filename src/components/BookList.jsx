@@ -12,21 +12,20 @@ const BookList = () => {
           book;
         const click = () => {
           addToOrder(isbn);
-          console.log('[bookList]]isbn: ' + isbn);
         };
         return (
           <BookItem key={isbn}>
-            <BookImage>
+            <div className='bookImg'>
               <a href={url} target='_blank' rel='noreferrer'>
                 <img src={thumbnail} alt={thumbnail} />
               </a>
-            </BookImage>
+            </div>
             <div className='bookContents'>
               <div className='bookPublisher'>{publisher}</div>
               <div className='bookTitle'>{title}</div>
               <div className='bookPrice'>
+                &#8361; {sale_price.toLocaleString()}
                 <strike>{price.toLocaleString()}</strike>{' '}
-                {sale_price.toLocaleString()} &#8361;
               </div>
               <div className='icons'>
                 <img src='/img/cart.png' alt='cart' onClick={click} />
@@ -45,9 +44,10 @@ const BookList = () => {
 const BookListWrapper = styled.li`
   background-color: var(--grey-color);
   display: grid;
-  width: 900px;
+  width: 90rem;
+  min-height: 40rem;
   margin: auto;
-  grid-gap: 10px;
+  grid-gap: 3rem;
   grid-template-columns: repeat(3, 1fr);
 `;
 const BookItem = styled.dl`
@@ -55,6 +55,11 @@ const BookItem = styled.dl`
   width: 100%;
   cursor: pointer;
   overflow: hidden;
+  .bookImg {
+    img {
+      width: 100%;
+    }
+  }
   .bookContents {
     position: absolute;
     text-align: left;
@@ -68,6 +73,11 @@ const BookItem = styled.dl`
     width: 100%;
   }
   &:hover {
+    .bookImg {
+      img {
+        opacity: 0.5;
+      }
+    }
     .bookContents {
       opacity: 1;
       transition: all 0.6s 0s;
@@ -92,7 +102,7 @@ const BookItem = styled.dl`
         strike {
           color: var(--darkgrey-color);
           font-size: 1.4rem;
-          margin-right: 0.5rem;
+          margin-left: 1rem;
         }
       }
       .icons {
@@ -106,20 +116,6 @@ const BookItem = styled.dl`
         }
       }
     }
-  }
-`;
-
-const BookImage = styled.dt`
-  /* width: 25rem;
-  height: 30rem;
-  position: relative;
-  margin: 0 auto;
-  text-align: center;
-  overflow: hidden; */
-  img {
-    /* width: 24rem;
-    height: 30rem; */
-    width: 100%;
   }
 `;
 

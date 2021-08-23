@@ -30,7 +30,7 @@ const Order = () => {
   return (
     <>
       <OrderWrapper>
-        <h1>장바구니</h1>
+        <Title>장바구니</Title>
         {orders.map((order) => {
           const { isbn } = order;
           const book = books.find((b) => b.isbn === isbn);
@@ -40,84 +40,127 @@ const Order = () => {
           return (
             <>
               <div className='item' key={isbn}>
-                <p>{book.title}</p>
-                <div className='img'>
-                  <img src={book.thumbnail} />
+                <div className='bookImg'>
+                  <img src={book.thumbnail} alt={book.thumbnail} />
                 </div>
                 <div className='content'>
                   <p className='bookTitle'>
                     {book.title} {order.quantity}권
                   </p>
-                </div>
-                <div className='action'>
-                  <p classname='sale_price'>
-                    $ {book.sale_price * order.quantity}
+                  <p className='bookPrice'>
+                    &#8361; {book.sale_price * order.quantity}
                   </p>
-                  <CrossBtn onClick={click}>X</CrossBtn>
+                </div>
+                <div className='icon'>
+                  <img src='/img/cancel.png' alt='cancel' onClick={click} />
                 </div>
               </div>
             </>
           );
         })}
-      </OrderWrapper>
-      <div>
-        <hr />
-        <div className='item'>
-          <div className='total'>Total</div>
-          <div className='sale_price'>${totalPrice}</div>
+        <div>
+          <hr />
+          <div className='totalItem'>
+            <div className='total'>Total</div>
+            <div className='PriceBox'>
+              <div className='bookTotalPrice'> &#8361; {totalPrice}</div>
+              <div className='icon'>
+                <img src='/img/cancel.png' alt='cancel' onClick={removeAll} />
+              </div>
+            </div>
+          </div>
         </div>
-        <button classname='btn' onClick={removeAll}>
-          X
-        </button>
-      </div>
+      </OrderWrapper>
     </>
   );
 };
 
 const OrderWrapper = styled.aside`
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 400px;
+  bottom: 2rem;
+  right: 2rem;
+  width: 40rem;
+  min-height: 30rem;
   margin-left: auto;
   border-radius: 4px;
+  padding: 1rem;
   background-color: var(--white-color);
-  padding: 20px;
+  padding: 2rem;
   overflow: hidden;
-  border: 2px solid var(--blue-color);
+  border: 2px solid var(--navy-color);
   h1 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
   }
   .item {
     display: flex;
+    // background-color: var(--grey-color);
+    margin-bottom: 1rem;
   }
-  img {
-    width: 40px;
-    height: 70px;
+  .bookImg {
+    img {
+      width: 60px;
+      height: 80px;
+    }
   }
-  .bookTitle {
-    font-size: 14px;
-    color: red;
+  .content {
+    margin: 1rem;
+    font-size: 1.4rem;
+    line-height: 20px;
+    align-items: center;
+    width: 80%;
+    .bookTitle {
+      color: var(--black-color);
+      font-weight: 600;
+    }
+    .bookPrice {
+      color: var(--darkgrey-color);
+    }
+  }
+  .icon {
+    display: flex;
+    margin: 1rem 0;
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  .totalItem {
+    margin-top: 1rem;
+    display: flex;
+    //grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    .total {
+      color: var(--black-color);
+      font-weight: 600;
+      font-size: 1.8rem;
+      width: 67%;
+    }
+    .PriceBox {
+      display: flex;
+      align-items: center;
+      text-align: right;
+      .bookTotalPrice {
+        color: var(--darkgrey-color);
+        font-weight: 600;
+        font-size: 1.8rem;
+        margin-right: 2rem;
+      }
+    }
   }
 `;
 
 const Title = styled.div`
-  // border: 1px solid red;
-  padding: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--navy-color);
+  text-align: center;
+  margin-bottom: 3rem;
 `;
 const SubTitle = styled.div`
-  //border: 1px solid red;
-  padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--navy-color);
 `;
 
-const CrossBtn = styled.button`
-  // margin: 0 10px 20px 54px;
-  padding: 10px;
-  border-radius: 50px;
-  background-color: var(--mint-color);
-  border: none;
-`;
 export default Order;
