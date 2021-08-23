@@ -17,7 +17,6 @@ const Order = () => {
       })
       .reduce((l, r) => l + r, 0);
   }, [orders, books]);
-  console.log(orders);
   if (orders.length === 0) {
     return (
       <OrderWrapper>

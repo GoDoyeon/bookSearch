@@ -24,7 +24,6 @@ const AppStateProvider = ({ children }) => {
     };
 
     const { data } = await bookSearch(params); // api 호출
-    console.log(data);
     if (reset) {
       setBooks(data.documents);
     } else {
@@ -45,21 +44,16 @@ const AppStateProvider = ({ children }) => {
       const finded = orders.find((order) => order.isbn === isbn);
       // 장바구니에 동일한 책이 없으면 quantity에 1을 넣어줌
       if (finded === undefined) {
-        console.log('동일한책 없음');
-        console.log(`isbn: ${isbn}`);
         return [...orders, { isbn, quantity: 1 }];
       } // 동일한 책이 있으면
       else {
         return orders.map((order) => {
-          console.log('dd');
           if (order.isbn === isbn) {
-            console.log(`order1: ${order.isbn}`);
             return {
               isbn,
               quantity: order.quantity + 1,
             };
           } else {
-            console.log(`order2: ${order.isbn}`);
             return order;
           }
         });

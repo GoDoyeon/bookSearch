@@ -61,9 +61,9 @@ const LiBraryWrapper = styled.div`
   .searchBox {
     position: relative;
     width: 70%;
-    height: 60px;
-    padding: 0 155px 0 132px;
-    margin: 40px auto 90px;
+    height: 5rem;
+    padding: 0 10rem;
+    margin: 4rem auto;
     background: #fff;
     text-align: left;
     box-sizing: border-box;
