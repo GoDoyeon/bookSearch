@@ -6,7 +6,7 @@ Library는 책을 검색 후 장바구니에 추가하면 책의 개수와 가�
 
 [![책 검색 사이트](https://img.youtube.com/vi/1gqiz43ffhs/0.jpg)](https://youtu.be/1gqiz43ffhs?t=0s)
 
-### � 링크
+### 💡 링크
 - [velog](https://velog.io/@97godo/React-React-%EB%A1%9C-kakao-%EC%B1%85-%EA%B2%80%EC%83%89-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0)
 - [YouTube](https://youtu.be/1gqiz43ffhs)
 
