@@ -20,7 +20,7 @@
 <img width="1552" alt="스크린샷 2021-08-27 오후 11 55 22" src="https://user-images.githubusercontent.com/69631850/131151464-bf2e989d-37a7-4b53-bdf8-eeed5898853a.png">
 
 ### 시연영상  [Youtube](https://youtu.be/1gqiz43ffhs?t=0s)
-### 블로그 [Velop](https://velog.io/@97godo/React-React-%EB%A1%9C-kakao-%EC%B1%85-%EA%B2%80%EC%83%89-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+### 블로그 [Velog](https://velog.io/@97godo/React-React-%EB%A1%9C-kakao-%EC%B1%85-%EA%B2%80%EC%83%89-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0)
 
 Library는 책을 검색 후 장바구니에 추가하면 책의 개수와 가격을 계산해 주는 서비스입니다.
 
@@ -38,6 +38,9 @@ Library는 책을 검색 후 장바구니에 추가하면 책의 개수와 가�
 <br/>
 
 ## 🔎 I learned 
+- 카카오 개발 문서를 읽고 적용하는 방법
+- Hooks로 컴포넌트를 분리하여 사용하는 방법
+
 <br/>
 
 ## 🕹 기능정보 
